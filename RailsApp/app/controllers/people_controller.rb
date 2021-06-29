@@ -3,12 +3,12 @@ class PeopleController < ApplicationController
     @msg = 'Person data.'
     @data = Person.all
   end
-  
+
   def show
     @msg = "Indexed data."
     @data = Person.find(params[:id])
   end
-  
+
   def add
     @msg = "add new data."
     @person = Person.new
@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
     end
     redirect_to '/people'
   end
-  
+
   def edit
     @msg = "edit data.[id = " + params[:id] + "]"
     @person = Person.find(params[:id])
@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
     obj.update(person_params)
     redirect_to '/people'
   end
-  
+
   def delete
     obj = Person.find(params[:id])
     obj.destroy
